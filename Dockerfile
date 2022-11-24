@@ -9,8 +9,9 @@ FROM python:3.6-alpine as server
 WORKDIR /app
 # Copy all packages instead of rerunning pip install
 COPY ["./Code","./"]
-ENV aws_access_key_id=""
-ENV aws_secret_access_key=""
+ENV aws_access_key_id="someid"
+ENV aws_secret_access_key="somesecret"
 ENV region="eu-west-1"
+ENV interval = 500
 RUN pip install -r requirements.txt
 CMD ["python", "run_app.py"]
