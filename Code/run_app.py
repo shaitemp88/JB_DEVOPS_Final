@@ -45,7 +45,7 @@ while True:
           for tag in instance.tags:
               print (tag)
           print ("instance id: ", instance.id)
-    exception:
+    except:
       print ("=Exception=")
     print ("Done - waiting for next interval")
     time.sleep(INTERVAL)
