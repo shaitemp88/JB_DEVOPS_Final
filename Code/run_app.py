@@ -10,7 +10,7 @@ import boto3
 ACCESS_ID = os.environ['aws_access_key_id']
 ACCESS_KEY = os.environ['aws_secret_access_key']
 REGION = os.environ['region']
-INTERVAL = int(os.environ["INTERVAL"])
+INTERVAL = int(os.environ["interval"])
 
 #print ("=                   =")
 #print ("Envoronment Variable:")
