@@ -12,13 +12,13 @@ ACCESS_KEY = os.environ['aws_secret_access_key']
 REGION = os.environ['region']
 INTERVAL = int(os.environ["INTERVAL"])
 
-print ("=                   =")
-print ("Envoronment Variable:")
-print (ACCESS_ID)
-print (ACCESS_KEY)
-print (REGION)
-print (INTERVAL)
-print ("=====================")
+#print ("=                   =")
+#print ("Envoronment Variable:")
+#print (ACCESS_ID)
+#print (ACCESS_KEY)
+#print (REGION)
+#print (INTERVAL)
+#print ("=====================")
 
 while True:
     ec2 = boto3.resource('ec2', region_name=REGION, aws_access_key_id=ACCESS_ID,
