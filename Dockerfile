@@ -12,6 +12,6 @@ COPY ["./Code","./"]
 ENV aws_access_key_id="someid"
 ENV aws_secret_access_key="somesecret"
 ENV region="eu-west-1"
-ENV interval = 500
+ENV interval="100"
 RUN pip install -r requirements.txt
 CMD ["python", "run_app.py"]
