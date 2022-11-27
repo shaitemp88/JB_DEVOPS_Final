@@ -62,7 +62,7 @@ pipeline {
                 }
             }
         }
-        stage('Checkout') {
+        /*stage('Checkout') {
             steps{
                 checkout([
                     $class: 'GitSCM',
@@ -100,7 +100,7 @@ pipeline {
                     // sh "git push"
                 // }
             }
-        }
+        }*/
         stage ('Upload Docker image'){
             steps{
                 script{
