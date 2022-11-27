@@ -62,6 +62,15 @@ pipeline {
                 }
             }
         }
+		stage ('Merge git branch to main')
+        {
+            steps{
+                script {
+                    sh 'git checkout main'
+                    sh 'git merge origin/dev'
+                }
+            }
+        }
         stage ('Upload Docker image'){
             steps{
                 script{
@@ -91,7 +100,7 @@ pipeline {
                 echo "TODO:Create kubernetes deployment"
             }
         }
-        stage ('Run Docker from build')
+        /*stage ('Run Docker from build')
         {
             steps{
                 script {
@@ -101,6 +110,7 @@ pipeline {
                     sh 'docker logs $DOCKERRUNNAME'
                 }
             }
-        }
+        }*/
     }
+}
 }
