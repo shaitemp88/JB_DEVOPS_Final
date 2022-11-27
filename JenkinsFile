@@ -66,8 +66,10 @@ pipeline {
         {
             steps{
                 script {
-                    sh 'git checkout main'
-                    sh 'git merge origin/dev'
+                    sh 'git fetch --all'
+					sh 'git checkout master'
+					sh 'git checkout branch-name'
+					sh 'git merge master'
                 }
             }
         }
