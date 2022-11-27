@@ -1,11 +1,20 @@
 <<<<<<< HEAD
-# JB_DEVOPS_Final - Dev branch - changes will be here before merge with main
-Test flow of the code in Jenkins123
-
-This is a push test 211122-1
-=======
-# JB_DEVOPS_Final
-
-test flow1
+# JB_DEVOPS_Final - Dev branch - steps to perform
 >>>>>>> main
-check connection to jenkins from git (webhook)5
+
+#Prerequisites:
+	# Needed OS with the following systems:
+		1) Docker
+		2) Jenkins
+		3) helm
+		4) Kubernetes
+		5) ArgoCD
+#Step 1:
+	configure the following jenkins file:
+
+#Step 2:
+	configure the ArgoCD like the following:
+#Step 3:
+	initiate change on the following git repo (dev branch): shaitemp88/JB_DEVOPS_Final
+	
+1
