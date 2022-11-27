@@ -1,4 +1,6 @@
-//properties([pipelineTriggers([githubPush()])]) pipeline {
+//properties([pipelineTriggers([githubPush()])])
+
+pipeline {
     agent any
     // Environmant variables
     parameters {
@@ -16,7 +18,7 @@
 	    AUTHDOCERP = "dckr_pat_4sJ6C5h2pJJ3_z55Ki5H_SvknFs"
 	}
     stages {
-        /* checkout repo
+        /* checkout repo 
         stage('Checkout SCM') {
             steps {
                 checkout([
@@ -71,7 +73,7 @@
         stage('Remove old Docker containers'){
             steps{
                 script{
-                    def doc_containers = sh(returnStdout: true, script: 'docker container ps -aq').replaceAll("\n", " ")
+                    def doc_containers = sh(returnStdout: true, script: 'docker container ps -aq').replaceAll("\n", " ") 
                     if (doc_containers) {
                         sh "docker stop ${doc_containers}"
                         sh "docker rm -f ${doc_containers}"
