@@ -7,7 +7,7 @@ pipeline {
 		string(name: 'INTERVAL', defaultValue: "300", description: 'The time in seconds where the script run')
 		string(name: 'GITPROJECT', defaultValue: "https://github.com/shaitemp88/JB_DEVOPS_Final", description: 'Git project code')
 		string(name: 'GITBRANCH', defaultValue: "dev", description: 'Git branch')
-	}
+    }
 	environment {
 	    INTERVAL = "${env.INTERVAL}"
 	    GITPROJECT = "${env.GITPROJECT}"
@@ -63,11 +63,11 @@ pipeline {
                 }
             }
         }
-		stage ('Update helm values file'){
+        stage ('Update helm values file'){
             steps{
-				cd ./JB_DEVOPS_Final/mychart
+                cd ./JB_DEVOPS_Final/mychart
                 cat values.yaml | yq eval -i '.image.tag = BUILD_NUMBER','.image.repository = DOCKERBUILD' values.yaml
-				cd ../..
+                cd ../..
             }
         }
         /*stage('Checkout') {
