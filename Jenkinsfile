@@ -40,14 +40,14 @@ pipeline {
                 }
             }
         }
-        /*stage ('Build Dockerfile'){
+        stage ('Build Dockerfile'){
             steps{
                 script {
                     sh 'ls'
                     sh 'docker build -t $DOCKERBUILD ./JB_DEVOPS_Final/'
                 }
             }
-        }*/
+        }
         stage('Update helm values file') {
             steps {
                 script {
@@ -58,6 +58,13 @@ pipeline {
                         yq eval -e values.yaml
                         cd ../..
                     """
+                }
+            }
+        }
+        stage('Create helm package'){
+            steps{
+                script {
+                    sh 'echo "TODO:create helm package"'
                 }
             }
         }
@@ -78,11 +85,6 @@ pipeline {
                         sh "docker rm -f ${doc_containers}"
                     }
                 }
-            }
-        }
-        stage('Create helm package'){
-            steps{
-                echo "TODO:create helm package"
             }
         }
         stage('Create kubernetes deployment'){
