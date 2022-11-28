@@ -55,8 +55,9 @@ pipeline {
                         cd ./JB_DEVOPS_Final/mychart
                         echo $PATH
                         pwd
+                        ls ../../../../
                         which yq
-                        /usr/bin/yq -e values.yaml
+                        ../../../../yq -e values.yaml
                         cd ../..
                     """
                 }
