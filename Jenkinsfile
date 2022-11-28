@@ -56,7 +56,7 @@ pipeline {
                         echo $PATH
                         which docker
                         which yq
-                        yq -e values.yaml
+                        /usr/bin/yq -e values.yaml
                         cd ../..
                     """
                 }
