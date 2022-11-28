@@ -66,7 +66,7 @@ pipeline {
         stage ('Update helm values file'){
             steps{
                 cd ./JB_DEVOPS_Final/mychart
-                cat values.yaml | yq eval -i '.image.tag = BUILD_NUMBER','.image.repository = DOCKERBUILD' values.yaml
+                cat values.yaml | yq eval -i '.image.tag = BUILD_NUMBER' values.yaml
                 cd ../..
             }
         }
