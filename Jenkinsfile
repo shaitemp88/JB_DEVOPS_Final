@@ -53,8 +53,8 @@ pipeline {
                 script {
                     sh """
                         cd ./JB_DEVOPS_Final/mychart
-                        echo $PATH
-                        yq -e values.yaml
+                        cat values.yaml | yq eval -i '.image.tag = BUILD_NUMBER','.image.repository = DOCKERBUILD' values.yaml
+                        yq eval -e values.yaml
                         cd ../..
                     """
                 }
