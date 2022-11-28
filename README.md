@@ -7,8 +7,9 @@
 		1) Docker
 		2) Jenkins
 		3) helm
-		4) Kubernetes
-		5) ArgoCD
+                4) yq tool
+		5) Kubernetes
+		6) ArgoCD
 #Step 1:
 	configure the following jenkins file:
 

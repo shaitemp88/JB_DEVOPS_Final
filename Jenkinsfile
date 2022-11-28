@@ -13,6 +13,7 @@ pipeline {
 	    GITPROJECT = "${env.GITPROJECT}"
 	    GITBRANCH = "${env.GITBRANCH}"
 	    DOCKERBUILD = "sbitton/jb_devops_final:v-${env.BUILD_NUMBER}"
+		BUILD_NUMBER = ${env.BUILD_NUMBER}
 	    DOCKERRUNNAME = "run1"
 	    AUTHDOCERU = "sbitton"
 	    AUTHDOCERP = "dckr_pat_4sJ6C5h2pJJ3_z55Ki5H_SvknFs"
@@ -60,6 +61,13 @@ pipeline {
                     //sh 'docker build -t $DOCKERBUILD ./JB_DEVOPS_Final/'
                     sh 'docker build --build-arg interval=$INTERVAL -t $DOCKERBUILD ./JB_DEVOPS_Final/'
                 }
+            }
+        }
+		stage ('Update helm values file'){
+            steps{
+				cd ./JB_DEVOPS_Final/mychart
+                cat values.yaml | yq eval -i '.image.tag = BUILD_NUMBER','.image.repository = DOCKERBUILD' values.yaml
+				cd ../..
             }
         }
         /*stage('Checkout') {
