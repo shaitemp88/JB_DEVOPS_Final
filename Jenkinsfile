@@ -60,6 +60,7 @@ pipeline {
                         echo "1"
                         cd ./JB_DEVOPS_Final/mychart
                         echo "2"
+                        ls
                         cat values.yaml | yq eval -i '.image.tag = BUILD_NUMBER',' values.yaml
                         echo "3"
                         cd ../..
