@@ -1,7 +1,12 @@
 //properties([pipelineTriggers([githubPush()])])
 
 pipeline {
-    agent any
+    //agent any
+    agent {
+        dockerfile {
+            args '--network="host"'
+        }
+    }
     // Environmant variables
     parameters {
 		string(name: 'INTERVAL', defaultValue: "300", description: 'The time in seconds where the script run')
