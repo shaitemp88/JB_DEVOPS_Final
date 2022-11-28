@@ -18,19 +18,6 @@ pipeline {
 	    AUTHDOCERP = "dckr_pat_4sJ6C5h2pJJ3_z55Ki5H_SvknFs"
 	}
     stages {
-        /* checkout repo 
-        stage('Checkout SCM') {
-            steps {
-                checkout([
-                 $class: 'GitSCM',
-                 branches: [[name: 'dev']],
-                 userRemoteConfigs: [[
-                    url: 'git@github.com:shaitemp88/JB_DEVOPS_Final.git',
-                    credentialsId: '',
-                 ]]
-                ])
-            }
-        }*/
         stage ('Init') {
             steps {
                 cleanWs()
@@ -53,6 +40,14 @@ pipeline {
                 }
             }
         }
+        /*stage ('Build Dockerfile'){
+            steps{
+                script {
+                    sh 'ls'
+                    sh 'docker build -t $DOCKERBUILD ./JB_DEVOPS_Final/'
+                }
+            }
+        }*/
         stage('Update helm values file') {
             steps {
                 script {
@@ -61,6 +56,7 @@ pipeline {
                         echo $PATH
                         which docker
                         which git
+                        which yq
                         cat values.yaml
                         cd ../..
                     """
