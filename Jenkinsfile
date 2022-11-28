@@ -59,6 +59,8 @@ pipeline {
                     sh """
                         cd ./JB_DEVOPS_Final/mychart
                         echo $PATH
+                        which docker
+                        which git
                         yq eval -e '.image.tag' values.yaml
                         cd ../..
                     """
