@@ -1,12 +1,7 @@
 //properties([pipelineTriggers([githubPush()])])
 
 pipeline {
-    //agent any
-    agent {
-        dockerfile {
-            args '--network="host"'
-        }
-    }
+    agent any
     // Environmant variables
     parameters {
 		string(name: 'INTERVAL', defaultValue: "300", description: 'The time in seconds where the script run')
@@ -60,7 +55,6 @@ pipeline {
                         cd ./JB_DEVOPS_Final/mychart
                         echo $PATH
                         which docker
-                        which git
                         which yq
                         yq -e values.yaml
                         cd ../..
