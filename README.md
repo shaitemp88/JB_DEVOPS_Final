@@ -7,7 +7,7 @@
 		1) Docker
 		2) Jenkins
 		3) helm
-                4) yq tool - you may need to update the yq path in the jenkinsfile
+                4) yq tool - you may need to update the yq path Jenkins config
 		5) Kubernetes
 		6) ArgoCD
 #Step 1:
