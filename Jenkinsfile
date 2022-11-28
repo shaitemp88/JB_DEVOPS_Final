@@ -56,7 +56,6 @@ pipeline {
                         echo $PATH
                         pwd
                         ls ../../../../
-                        which yq
                         ../../../../yq -e values.yaml
                         cd ../..
                     """
