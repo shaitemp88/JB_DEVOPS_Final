@@ -57,7 +57,7 @@ pipeline {
                         which docker
                         which git
                         which yq
-                        cat values.yaml
+                        yq -e values.yaml
                         cd ../..
                     """
                 }
