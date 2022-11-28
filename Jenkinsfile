@@ -58,9 +58,8 @@ pipeline {
                 script {
                     sh """
                         cd ./JB_DEVOPS_Final/mychart
-                        ls
+                        echo $PATH
                         yq eval -e '.image.tag' values.yaml
-                        echo "3"
                         cd ../..
                     """
                 }
