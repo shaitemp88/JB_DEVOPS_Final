@@ -61,7 +61,7 @@ pipeline {
                         echo $PATH
                         which docker
                         which git
-                        yq eval -e '.image.tag' values.yaml
+                        cat values.yaml
                         cd ../..
                     """
                 }
