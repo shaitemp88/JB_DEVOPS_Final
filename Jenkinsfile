@@ -57,11 +57,8 @@ pipeline {
             steps {
                 script {
                     sh """
-                        echo "1"
                         cd ./JB_DEVOPS_Final/mychart
-                        echo "2"
-                        ls
-                        cat values.yaml | yq eval -i '.image.tag = BUILD_NUMBER','.image.repository = DOCKERBUILD' values.yaml
+                        cat values.yaml | /var/lib/snapd/snap/bin/yq eval -i '.image.tag = BUILD_NUMBER','.image.repository = DOCKERBUILD' values.yaml
                         echo "3"
                         cd ../..
                         echo "4"
