@@ -54,12 +54,14 @@ pipeline {
             }
         }
         stage('Update helm values file') {
-            script {
-                sh """
-                    cd ./JB_DEVOPS_Final/mychart
-                    cat values.yaml | yq eval -i '.image.tag = BUILD_NUMBER',' values.yaml
-                    cd ../..
-                """
+            steps {
+                script {
+                    sh """
+                        cd ./JB_DEVOPS_Final/mychart
+                        cat values.yaml | yq eval -i '.image.tag = BUILD_NUMBER',' values.yaml
+                        cd ../..
+                    """
+                }
             }
         }
         stage ('Upload Docker image'){
