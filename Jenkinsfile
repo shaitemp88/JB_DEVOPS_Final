@@ -54,7 +54,7 @@ pipeline {
                     sh """
                         cd ./JB_DEVOPS_Final/mychart
                         echo $PATH
-                        which docker
+                        pwd
                         which yq
                         /usr/bin/yq -e values.yaml
                         cd ../..
