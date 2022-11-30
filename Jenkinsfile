@@ -47,6 +47,7 @@ pipeline {
         stage ('Merge dev with branch'){
             steps {
                 script {
+                    sh 'git init'
                     sh 'git remote add origin https://$AUTHGITU:$AUTHGITP@$GITPROJECT.git'
                     sh 'git checkout main'
                     sh 'git merge origin/$GITBRANCH'
