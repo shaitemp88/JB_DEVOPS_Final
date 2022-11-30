@@ -17,15 +17,16 @@ pipeline {
 	    AUTHDOCERU = "sbitton"
 	    AUTHDOCERP = "dckr_pat_4sJ6C5h2pJJ3_z55Ki5H_SvknFs"
         AUTHGITU = "shaitemp88"
-        AUTHGITP = ""
+        AUTHGITP = "12WE$%rt"
 	}
     stages {
         stage ('Init') {
             steps {
                 cleanWs()
                 // We need to explicitly checkout from SCM here
-                echo "Building ${env.JOB_NAME}..."
-                echo "Interval $INTERVAL..."
+                echo "Building ${env.JOB_NAME}"
+                echo "Interval $INTERVAL"
+                echo "Git project $GITPROJECT"
             }
         }
         stage ('Get code') {
