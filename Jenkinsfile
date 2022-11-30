@@ -1,5 +1,3 @@
-//properties([pipelineTriggers([githubPush()])])
-
 pipeline {
     // Agent config
     agent any
