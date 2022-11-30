@@ -1,6 +1,7 @@
 //properties([pipelineTriggers([githubPush()])])
 
 pipeline {
+    // Agent config
     agent any
     // Environmant variables
     parameters {
@@ -13,6 +14,7 @@ pipeline {
 	    GITPROJECT = "${env.GITPROJECT}"
 	    GITBRANCH = "${env.GITBRANCH}"
 	    DOCKERBUILD = "sbitton/jb_devops_final:v-${env.BUILD_NUMBER}"
+        HELMBUILD = "shaitemp88/HelmRepo"
 	    DOCKERRUNNAME = "run1"
 	    AUTHDOCERU = "sbitton"
 	    AUTHDOCERP = "dckr_pat_4sJ6C5h2pJJ3_z55Ki5H_SvknFs"
@@ -48,13 +50,27 @@ pipeline {
                 }
             }
         }
+        stage ('Merge dev with branch'){
+            steps {
+                script {
+                    echo "TODO: Merge dev with branch"
+                }
+            }
+        }
+        stage ('Commit changes to HelmRepo'){
+            steps {
+                script {
+                    echo "TODO: Commit changes to HelmRepo"
+                }
+            }
+        }
         stage('Update helm values file') {
             steps {
                 script {
                     sh """
                         cd ./JB_DEVOPS_Final/mychart
                         cat values.yaml | yq eval -i '.image.tag = $BUILD_NUMBER' values.yaml
-                        cat values.yaml | yq eval -i '.image.repository = "$DOCKERBUILD"' values.yaml
+                        cat values.yaml | yq eval -i '.image.repository = "$DOCKERBUILD"' values.yaml91
                         yq eval -e values.yaml
                         cd ../..
                     """
@@ -64,7 +80,10 @@ pipeline {
         stage('Create helm package'){
             steps{
                 script {
-                    sh 'echo "TODO:create helm package"'
+                    sh 'pwd'
+                    sh 'cd HelmRepo'
+                    sh 'helm package ../JB_DEVOPS_Final/mychart/'
+                    sh 'cd ..'
                 }
             }
         }
@@ -85,11 +104,6 @@ pipeline {
                         sh "docker rm -f ${doc_containers}"
                     }
                 }
-            }
-        }
-        stage('Create kubernetes deployment'){
-            steps{
-                echo "TODO:Create kubernetes deployment"
             }
         }
         /*stage ('Run Docker from build')
