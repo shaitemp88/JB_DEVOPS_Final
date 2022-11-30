@@ -56,7 +56,7 @@ pipeline {
                     sh 'git checkout $GITMAINBRANCH'
                     sh 'git fetch'
                     sh 'git merge $GITBRANCH --commit'
-                    sh 'git push origin $GITMAINBRANCH'
+                    sh 'git push'
                 }
             }
         }
