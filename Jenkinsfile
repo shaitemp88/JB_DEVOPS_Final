@@ -70,7 +70,7 @@ pipeline {
                     sh """
                         cd ./JB_DEVOPS_Final/mychart
                         cat values.yaml | yq eval -i '.image.tag = $BUILD_NUMBER' values.yaml
-                        cat values.yaml | yq eval -i '.image.repository = "$DOCKERBUILD"' values.yaml91
+                        cat values.yaml | yq eval -i '.image.repository = "$DOCKERBUILD"' values.yaml
                         yq eval -e values.yaml
                         cd ../..
                     """
