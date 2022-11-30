@@ -78,19 +78,14 @@ pipeline {
         stage('Create helm package'){
             steps{
                 script {
-                    sh 'pwd'
-                    sh 'ls'
-                    sh 'cd JB_DEVOPS_Final'
-                    sh 'ls'
-                    sh 'pwd'
-                    sh 'cd JB_DEVOPS_Final'
-                    sh 'ls'
-                    sh 'pwd'
-                    sh 'cd ..'
-                    sh 'mkdir HelmRepo'
-                    sh 'cd HelmRepo'
-                    sh 'helm package ../JB_DEVOPS_Final/mychart/'
-                    sh 'cd ..'
+                    sh """
+                        pwd
+                        cd ..
+                        mkdir HelmRepo
+                        cd ./HelmRepo
+                        helm package ../JB_DEVOPS_Final/mychart/
+                        cd ..
+                    """
                 }
             }
         }
