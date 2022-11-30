@@ -26,16 +26,12 @@ pipeline {
                 // We need to explicitly checkout from SCM here
                 echo "Building ${env.JOB_NAME}..."
                 echo "Interval $INTERVAL..."
-                // sh 'docker rm ${docker ps --all -q}'
-                // sh 'docker image rm ${docker images -q}'
-                // sh 'printenv'
             }
         }
         stage ('Get code') {
             //agent {docker {image ciConfig.buildImage}}
             steps {
                 script {
-                    // sh 'git clone -b dev https://github.com/shaitemp88/JB_DEVOPS_Final'
                     sh 'git clone -b $GITBRANCH https://$GITPROJECT'
                 }
             }
@@ -51,6 +47,7 @@ pipeline {
         stage ('Merge dev with branch'){
             steps {
                 script {
+                    echo "debug Merge"
                     ssh """
                         git remote add origin https://$AUTHGITU:$AUTHGITP@github.com/UserName/yourRepo.git
                         git checkout main
