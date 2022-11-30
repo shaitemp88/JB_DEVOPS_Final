@@ -62,7 +62,7 @@ pipeline {
                 }
             }
         }
-        /*stage('Update helm values file') {
+        stage('Update helm values file') {
             steps {
                 script {
                     sh """
@@ -74,7 +74,7 @@ pipeline {
                     """
                 }
             }
-        }*/
+        }
         stage('Create helm package'){
             steps{
                 script {
