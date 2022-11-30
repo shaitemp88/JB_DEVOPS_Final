@@ -19,5 +19,7 @@ spec:
       containers:
       - image: {{ .Values.image.repository  }}
         name: {{ .Values.image.name  }}
+        ports:
+        - containerPort: {{ .Values.deployment.port }}
         resources: {}
 status: {}

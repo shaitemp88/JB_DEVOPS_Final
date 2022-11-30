@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.service.name }}
+  labels:
+    app:  {{ .Values.deployment.lables.app }}
+spec:
+  selector:
+    app: {{ .Values.deployment.lables.app }}
+  type: {{ .Values.service.type }}
+  ports:
+    - name: http-for-ec2report
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.deployment.port }}
+      protocol: TCP

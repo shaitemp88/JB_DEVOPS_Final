@@ -1,0 +1,16 @@
+project: default
+source:
+  repoURL: 'https://github.com/shaitemp88/HelmRepo.git'
+  path: mychart
+  targetRevision: HEAD
+  helm:
+    valueFiles:
+      - values.yaml
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: mychart
+syncPolicy:
+  automated: {}
+  syncOptions:
+    - CreateNamespace=true
+
