@@ -40,7 +40,6 @@ pipeline {
         stage ('Build Dockerfile'){
             steps{
                 script {
-                    sh 'ls'
                     sh 'docker build -t $DOCKERBUILD ./JB_DEVOPS_Final/'
                 }
             }
@@ -48,11 +47,9 @@ pipeline {
         stage ('Merge dev with branch'){
             steps {
                 script {
-                    sh """
-                        git remote add origin https://$AUTHGITU:$AUTHGITP@$GITPROJECT.git
-                        git checkout main
-                        git merge origin/$GITBRANCH
-                    """
+                    sh 'git remote add origin https://$AUTHGITU:$AUTHGITP@$GITPROJECT.git'
+                    sh 'git checkout main'
+                    sh 'git merge origin/$GITBRANCH'
                 }
             }
         }
