@@ -17,8 +17,9 @@ pipeline {
 	    DOCKERRUNNAME = "run1"
 	    AUTHDOCERU = "sbitton"
 	    AUTHDOCERP = "dckr_pat_4sJ6C5h2pJJ3_z55Ki5H_SvknFs"
-        AUTHGITU = "shaitemp88"
-        AUTHGITP = "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"
+        //AUTHGITU = "shaitemp88"
+        //AUTHGITP = "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"
+        GITACCESSTOKEN = "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"
 	}
     stages {
         stage ('Init') {
@@ -49,7 +50,8 @@ pipeline {
             steps {
                 script {
                     sh 'git init'
-                    sh 'git remote add origin https://$AUTHGITU:$AUTHGITP@$GITPROJECT.git'
+                    //sh 'git remote add origin https://$AUTHGITU:$AUTHGITP@$GITPROJECT.git'
+                    sh 'git remote add origin https://$GITACCESSTOKEN@$GITPROJECT.git'
                     sh 'git fetch'
                     sh 'git checkout $GITBRANCH'
                     sh 'git fetch'
