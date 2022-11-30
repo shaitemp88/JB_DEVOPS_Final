@@ -49,7 +49,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                        git remote add origin https://$AUTHGITU:$AUTHGITP@github.com/UserName/yourRepo.git
+                        git remote add origin https://$AUTHGITU:$AUTHGITP@GITPROJECT.git
                         git checkout main
                         git merge origin/$GITBRANCH
                     """
