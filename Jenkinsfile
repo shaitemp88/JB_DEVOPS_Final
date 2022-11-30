@@ -19,7 +19,7 @@ pipeline {
 	    AUTHDOCERP = "dckr_pat_4sJ6C5h2pJJ3_z55Ki5H_SvknFs"
         //AUTHGITU = "shaitemp88"
         //AUTHGITP = "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---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"
-        GITACCESSTOKEN = "i6QgYkjeUcZ9CnY2VyvEuUJB4nb61B3wSbBl"
+        GITACCESSTOKEN = "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"
 	}
     stages {
         stage ('Init') {
@@ -51,7 +51,8 @@ pipeline {
                 script {
                     sh 'git init'
                     //sh 'git remote add origin https://$AUTHGITU:$AUTHGITP@$GITPROJECT.git'
-                    sh 'git remote add origin https://$GITACCESSTOKEN@$GITPROJECT.git'
+                    //sh 'git remote add origin https://$GITACCESSTOKEN@$GITPROJECT.git'
+                    sh 'git remote add origin https://$GITPROJECT.git'
                     sh 'git fetch'
                     sh 'git checkout $GITBRANCH'
                     sh 'git fetch'
