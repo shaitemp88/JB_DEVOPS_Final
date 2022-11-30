@@ -79,8 +79,6 @@ pipeline {
             steps{
                 script {
                     sh """
-                        pwd
-                        cd ..
                         mkdir HelmRepo
                         cd ./HelmRepo
                         helm package ../JB_DEVOPS_Final/mychart/
