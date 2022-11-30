@@ -48,8 +48,7 @@ pipeline {
         stage ('Merge dev with branch'){
             steps {
                 script {
-                    echo "debug Merge"
-                    ssh """
+                    sh """
                         git remote add origin https://$AUTHGITU:$AUTHGITP@github.com/UserName/yourRepo.git
                         git checkout main
                         git merge origin/$GITBRANCH
