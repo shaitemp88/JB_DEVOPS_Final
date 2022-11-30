@@ -19,7 +19,7 @@ pipeline {
 	    AUTHDOCERP = "dckr_pat_4sJ6C5h2pJJ3_z55Ki5H_SvknFs"
         //AUTHGITU = "shaitemp88"
         //AUTHGITP = "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---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"
-        GITACCESSTOKEN = "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"
+        GITACCESSTOKEN = "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"
 	}
     stages {
         stage ('Init') {
