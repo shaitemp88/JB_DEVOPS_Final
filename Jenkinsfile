@@ -4,7 +4,7 @@ pipeline {
     // Environmant variables
     parameters {
 		string(name: 'INTERVAL', defaultValue: "300", description: 'The time in seconds where the script run')
-		string(name: 'GITPROJECT', defaultValue: "https://github.com/shaitemp88/JB_DEVOPS_Final", description: 'Git project code')
+		string(name: 'GITPROJECT', defaultValue: "github.com/shaitemp88/JB_DEVOPS_Final", description: 'Git project code')
 		string(name: 'GITBRANCH', defaultValue: "dev", description: 'Git branch')
 	}
 	environment {
