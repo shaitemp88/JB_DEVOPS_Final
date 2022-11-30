@@ -18,6 +18,8 @@ pipeline {
 	    DOCKERRUNNAME = "run1"
 	    AUTHDOCERU = "sbitton"
 	    AUTHDOCERP = "dckr_pat_4sJ6C5h2pJJ3_z55Ki5H_SvknFs"
+        AUTHGITU = "shaitemp88"
+        AUTHGITP = ""
 	}
     stages {
         stage ('Init') {
@@ -35,8 +37,8 @@ pipeline {
             //agent {docker {image ciConfig.buildImage}}
             steps {
                 script {
-                    sh 'git clone -b dev https://github.com/shaitemp88/JB_DEVOPS_Final'
-                    //git branch: '$GITBRANCH', url: 'https://$GITPROJECT'
+                    // sh 'git clone -b dev https://github.com/shaitemp88/JB_DEVOPS_Final'
+                    sh 'git clone -b $GITBRANCH https://$GITPROJECT'
                 }
             }
         }
@@ -51,7 +53,11 @@ pipeline {
         stage ('Merge dev with branch'){
             steps {
                 script {
-                    echo "TODO: Merge dev with branch"
+                    ssh """
+                        git remote add origin https://$AUTHGITU:$AUTHGITP@github.com/UserName/yourRepo.git
+                        git checkout main
+                        git merge origin/$GITBRANCH
+                    """
                 }
             }
         }
