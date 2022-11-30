@@ -18,8 +18,8 @@ pipeline {
 	    AUTHDOCERU = "sbitton"
 	    AUTHDOCERP = "dckr_pat_4sJ6C5h2pJJ3_z55Ki5H_SvknFs"
         //AUTHGITU = "shaitemp88"
-        //AUTHGITP = "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"
-        GITACCESSTOKEN = "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"
+        //AUTHGITP = "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---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"
+        GITACCESSTOKEN = "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"
 	}
     stages {
         stage ('Init') {
