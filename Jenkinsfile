@@ -11,6 +11,7 @@ pipeline {
 	    INTERVAL = "${env.INTERVAL}"
 	    GITPROJECT = "${env.GITPROJECT}"
 	    GITBRANCH = "${env.GITBRANCH}"
+        GITMAINBRANCH = "main"
 	    DOCKERBUILD = "sbitton/jb_devops_final:v-${env.BUILD_NUMBER}"
         HELMBUILD = "shaitemp88/HelmRepo"
 	    DOCKERRUNNAME = "run1"
@@ -49,8 +50,10 @@ pipeline {
                 script {
                     sh 'git init'
                     sh 'git remote add origin https://$AUTHGITU:$AUTHGITP@$GITPROJECT.git'
+                    sh 'git checkout $GITBRANCH'
                     sh 'git fetch'
-                    sh 'git checkout main'
+                    sh 'git checkout $GITMAINBRANCH'
+                    sh 'git fetch'
                     sh 'git merge $GITBRANCH'
                 }
             }
