@@ -51,7 +51,7 @@ pipeline {
                 script {
                     sh 'git init'
                     //sh 'git remote add origin https://$AUTHGITU:$AUTHGITP@$GITPROJECT.git'
-                    sh 'git remote add origin https://Authorization@$GITACCESSTOKEN@$GITPROJECT.git'
+                    sh 'git remote add origin https://Authorization:$GITACCESSTOKEN@$GITPROJECT.git'
                     sh 'git fetch'
                     sh 'git checkout $GITBRANCH'
                     sh 'git fetch'
