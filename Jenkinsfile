@@ -35,8 +35,6 @@ pipeline {
             //agent {docker {image ciConfig.buildImage}}
             steps {
                 script {
-                    // consul
-                    //sh 'git clone -b main https://github.com/shaitemp88/Development.git'
                     sh 'git clone -b dev https://github.com/shaitemp88/JB_DEVOPS_Final'
                     //git branch: '$GITBRANCH', url: 'https://$GITPROJECT'
                 }
@@ -64,7 +62,7 @@ pipeline {
                 }
             }
         }
-        stage('Update helm values file') {
+        /*stage('Update helm values file') {
             steps {
                 script {
                     sh """
@@ -76,7 +74,7 @@ pipeline {
                     """
                 }
             }
-        }
+        }*/
         stage('Create helm package'){
             steps{
                 script {
