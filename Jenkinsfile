@@ -18,7 +18,7 @@ pipeline {
 	    AUTHDOCERU = "sbitton"
 	    AUTHDOCERP = "dckr_pat_4sJ6C5h2pJJ3_z55Ki5H_SvknFs"
         AUTHGITU = "shaitemp88"
-        AUTHGITP = "12WE\$%rt"
+        AUTHGITP = "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"
 	}
     stages {
         stage ('Init') {
