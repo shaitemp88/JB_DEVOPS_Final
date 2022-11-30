@@ -51,7 +51,7 @@ pipeline {
                     sh 'git remote add origin https://$AUTHGITU:$AUTHGITP@$GITPROJECT.git'
                     sh 'git fetch'
                     sh 'git checkout main'
-                    sh 'git merge origin/$GITBRANCH'
+                    sh 'git merge $GITBRANCH'
                 }
             }
         }
