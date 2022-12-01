@@ -95,6 +95,7 @@ pipeline {
             steps{
                 script {
                     sh """
+                        ls
                         helm package .
                         cd ../..
                     """
