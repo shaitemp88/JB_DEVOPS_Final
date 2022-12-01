@@ -86,7 +86,7 @@ pipeline {
                         git clone https://$HELMPROJECT
                         cd ./HelmRepo/mychart/
                         pwd
-                        cp ../JB_DEVOPS_Final/mychart/values.yaml values.yaml
+                        cp ../../JB_DEVOPS_Final/mychart/values.yaml values.yaml
                         cat values.yaml
                     """
                 }
