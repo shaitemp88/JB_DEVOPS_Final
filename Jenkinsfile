@@ -53,7 +53,7 @@ pipeline {
                     sh 'git init'
                     //sh 'git remote add origin https://$AUTHGITU:$AUTHGITP@$GITPROJECT.git'
                     // sh 'git remote add origin https://$GITACCESSTOKEN@$GITPROJECT'
-                    sh 'git remote add test https://x-access-token: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@github.com/shaitemp88/JB_DEVOPS_Final'
+                    sh 'git remote add origin https://x-access-token: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@github.com/shaitemp88/JB_DEVOPS_Final'
                     //sh 'git remote add origin https://$GITPROJECT.git'
                     sh 'git fetch'
                     sh 'git checkout $GITBRANCH'
