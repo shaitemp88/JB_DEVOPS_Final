@@ -82,10 +82,8 @@ pipeline {
             steps {
                 script {
                     sh """
-                        ls
                         git clone https://$HELMPROJECT
                         cd ./HelmRepo/mychart/
-                        pwd
                         cp ../../JB_DEVOPS_Final/mychart/values.yaml values.yaml
                         cat values.yaml
                     """
@@ -96,9 +94,8 @@ pipeline {
             steps{
                 script {
                     sh """
-                        helm package ../JB_DEVOPS_Final/mychart/
-                        ls
-                        cd ..
+                        helm package .
+                        cd ../..
                     """
                 }
             }
