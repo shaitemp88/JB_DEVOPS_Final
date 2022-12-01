@@ -3,10 +3,10 @@
 # Declare variables to be passed into your templates.
 replicaCount: 5
 image:
-  repository: sbitton/jb_devops_final:v-45
+  repository: sbitton/jb_devops_final:v-162
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 45
+  tag: 162
   name: "ec2report"
 deployment:
   name: "workapp"
