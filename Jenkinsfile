@@ -81,11 +81,14 @@ pipeline {
         stage ('Commit changes to HelmRepo'){
             steps {
                 script {
-                    sh 'git clone https://$HELMPROJECT'
-                    sh 'cd mychart/'
-                    sh 'pwd'
-                    sh 'cp ../JB_DEVOPS_Final/mychart/values.yaml values.yaml'
-                    sh 'cat values.yaml'
+                    sh """
+                        ls
+                        git clone https://$HELMPROJECT
+                        cd ./HelmRepo/mychart/
+                        pwd
+                        cp ../JB_DEVOPS_Final/mychart/values.yaml values.yaml
+                        cat values.yaml
+                    """
                 }
             }
         }
