@@ -19,7 +19,7 @@ pipeline {
 	    AUTHDOCERU = "sbitton"
 	    AUTHDOCERP = "dckr_pat_4sJ6C5h2pJJ3_z55Ki5H_SvknFs"
         //AUTHGITU = "shaitemp88"
-        //AUTHGITP = "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---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"
+        //AUTHGITP = "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"
         GITACCESSTOKEN = "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"
 	}
     stages {
@@ -53,7 +53,7 @@ pipeline {
                     sh 'git init'
                     //sh 'git remote add origin https://$AUTHGITU:$AUTHGITP@$GITPROJECT.git'
                     // sh 'git remote add origin https://$GITACCESSTOKEN@$GITPROJECT'
-                    sh 'git remote add origin https://x-access-token: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@github.com/shaitemp88/JB_DEVOPS_Final'
+                    sh 'git remote add origin https://x-access-token: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@github.com/shaitemp88/JB_DEVOPS_Final'
                     //sh 'git remote add origin https://$GITPROJECT.git'
                     sh 'git fetch'
                     sh 'git checkout $GITBRANCH'
