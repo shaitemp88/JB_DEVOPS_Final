@@ -86,7 +86,11 @@ pipeline {
                         cd ./HelmRepo/mychart/
                         cp ../../JB_DEVOPS_Final/mychart/values.yaml values.yaml
                         cat values.yaml
+                        git remote add helm https://$GITACCESSTOKEN@$HELMPROJECT
+                        git add --all
+                        git commit -m "update $DOCKERBUILD"
                     """
+                    // TODO: ADD GIT PUSH
                 }
             }
         }
