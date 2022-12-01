@@ -5,15 +5,16 @@ pipeline {
     parameters {
 		string(name: 'INTERVAL', defaultValue: "300", description: 'The time in seconds where the script run')
 		string(name: 'GITPROJECT', defaultValue: "github.com/shaitemp88/JB_DEVOPS_Final", description: 'Git project code')
+        string(name: 'HELMPROJECT', defaultValue: "github.com/shaitemp88/HelmRepo", description: 'Git project code')
 		string(name: 'GITBRANCH', defaultValue: "dev", description: 'Git branch')
 	}
 	environment {
 	    INTERVAL = "${env.INTERVAL}"
 	    GITPROJECT = "${env.GITPROJECT}"
 	    GITBRANCH = "${env.GITBRANCH}"
+        HELMPROJECT = "${env.HELMPROJECT}"
         GITMAINBRANCH = "main"
 	    DOCKERBUILD = "sbitton/jb_devops_final:v-${env.BUILD_NUMBER}"
-        HELMBUILD = "shaitemp88/HelmRepo"
 	    DOCKERRUNNAME = "run1"
 	    AUTHDOCERU = "sbitton"
 	    AUTHDOCERP = "dckr_pat_4sJ6C5h2pJJ3_z55Ki5H_SvknFs"
@@ -51,7 +52,8 @@ pipeline {
                 script {
                     sh 'git init'
                     //sh 'git remote add origin https://$AUTHGITU:$AUTHGITP@$GITPROJECT.git'
-                    sh 'git remote add origin https://$GITACCESSTOKEN@$GITPROJECT'
+                    // sh 'git remote add origin https://$GITACCESSTOKEN@$GITPROJECT'
+                    sh 'git remote add test https://x-access-token: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@github.com/shaitemp88/JB_DEVOPS_Final'
                     //sh 'git remote add origin https://$GITPROJECT.git'
                     sh 'git fetch'
                     sh 'git checkout $GITBRANCH'
@@ -60,13 +62,6 @@ pipeline {
                     sh 'git fetch'
                     sh 'git merge $GITBRANCH --commit'
                     sh 'git push'
-                }
-            }
-        }
-        stage ('Commit changes to HelmRepo'){
-            steps {
-                script {
-                    echo "TODO: Commit changes to HelmRepo"
                 }
             }
         }
@@ -92,6 +87,13 @@ pipeline {
                         helm package ../JB_DEVOPS_Final/mychart/
                         cd ..
                     """
+                }
+            }
+        }
+        stage ('Commit changes to HelmRepo'){
+            steps {
+                script {
+                    sh 'git clone -b $GITBRANCH https://$GITPROJECT'
                 }
             }
         }
