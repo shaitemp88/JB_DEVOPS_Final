@@ -78,18 +78,6 @@ pipeline {
                 }
             }
         }
-        stage('Create helm package'){
-            steps{
-                script {
-                    sh """
-                        mkdir HelmRepo
-                        cd ./HelmRepo
-                        helm package ../JB_DEVOPS_Final/mychart/
-                        cd ..
-                    """
-                }
-            }
-        }
         stage ('Commit changes to HelmRepo'){
             steps {
                 script {
@@ -98,6 +86,17 @@ pipeline {
                     sh 'pwd'
                     sh 'cp ../JB_DEVOPS_Final/mychart/values.yaml values.yaml'
                     sh 'cat values.yaml'
+                }
+            }
+        }
+        stage('Create helm package'){
+            steps{
+                script {
+                    sh """
+                        helm package ../JB_DEVOPS_Final/mychart/
+                        ls
+                        cd ..
+                    """
                 }
             }
         }
