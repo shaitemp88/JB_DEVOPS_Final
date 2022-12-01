@@ -16,10 +16,20 @@ The above need to be on the same machine
 * Dockerhub account
 * AWS account
 
-# Steps:
+# Running steps:
+* Changes made to the dev branch will trigger the Jenkins pipeline
+* The pipeline will try to build the image with the updates
+* On a successfull build, an update to the helm chart will occur
+* The pipeline will push the updated Docker image to the Dockerhub
+* The pipeline will merge the changes with the main/master branch
+* The pipeline will push the changes to the HelmRepo on which the ArgoCD is monitoring
+* Upon update to the HelmRepo repository, ArgoCD will update your Kubernetes environment
+
+# Steps to copy this project:
 
 * Installation of the tools
 * Clone the JB_DEVOPS_Final to a clean repository on your Github account
+* Create another branch apart from you main/master
 * Clone the HelmRepo to a DIFFERENT, clean repository on your Github account
 * Create an access tokens to both your Git and Docker accounts
 * Import the JB_DEVOPS_Final Jenkinsfile to the Jenkins on your machine
@@ -33,3 +43,5 @@ The project will scan your AWS EC2 and print a report of the machines that are r
 --filters "Name=tag:k8s.io/role/master,Values=1"  "Name=instance-state-code,Values=16”
 you can change the tags in the Code/run_app.py
 
+# Known problems
+* Pushing changes failing on the git side

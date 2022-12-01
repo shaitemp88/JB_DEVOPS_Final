@@ -18,8 +18,6 @@ pipeline {
 	    DOCKERRUNNAME = "run1"
 	    AUTHDOCERU = "sbitton"
 	    AUTHDOCERP = "dckr_pat_4sJ6C5h2pJJ3_z55Ki5H_SvknFs"
-        //AUTHGITU = "shaitemp88"
-        //AUTHGITP = "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"
         GITACCESSTOKEN = "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"
 	}
     stages {
@@ -33,7 +31,6 @@ pipeline {
             }
         }
         stage ('Get code') {
-            //agent {docker {image ciConfig.buildImage}}
             steps {
                 script {
                     sh 'git clone -b $GITBRANCH https://$GITPROJECT'
@@ -51,17 +48,14 @@ pipeline {
             steps {
                 script {
                     sh 'git init'
-                    //sh 'git remote add origin https://$AUTHGITU:$AUTHGITP@$GITPROJECT.git'
-                    // sh 'git remote add origin https://$GITACCESSTOKEN@$GITPROJECT'
-                    sh 'git remote add origin https://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@github.com/shaitemp88/JB_DEVOPS_Final'
-                    //sh 'git remote add origin https://$GITPROJECT.git'
+                    sh 'git remote add origin https://$GITACCESSTOKEN@$GITPROJECT'
                     sh 'git fetch'
                     sh 'git checkout $GITBRANCH'
                     sh 'git fetch'
                     sh 'git checkout $GITMAINBRANCH'
                     sh 'git fetch'
                     sh 'git merge $GITBRANCH --commit'
-                    //sh 'git push'
+                    //sh 'git push origin $GITMAINBRANCH'
                 }
             }
         }
@@ -89,8 +83,8 @@ pipeline {
                         git remote add helm https://$GITACCESSTOKEN@$HELMPROJECT
                         git add --all
                         git commit -m "update $DOCKERBUILD"
-                        git push
                     """
+                    // sh 'git push helm $GITMAINBRANCH'
                 }
             }
         }
