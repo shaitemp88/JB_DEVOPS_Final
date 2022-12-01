@@ -61,7 +61,7 @@ pipeline {
                     sh 'git checkout $GITMAINBRANCH'
                     sh 'git fetch'
                     sh 'git merge $GITBRANCH --commit'
-                    sh 'git push'
+                    //sh 'git push'
                 }
             }
         }
@@ -94,6 +94,10 @@ pipeline {
             steps {
                 script {
                     sh 'git clone -b $GITBRANCH https://$GITPROJECT'
+                    sh 'cd mychart/'
+                    sh 'pwd'
+                    sh 'cp ../JB_DEVOPS_Final/mychart/values.yaml values.yaml'
+                    sh 'cat values.yaml'
                 }
             }
         }
